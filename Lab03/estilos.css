@@ -1,0 +1,90 @@
+/* body{
+      background-color: rgba(87, 110, 91, 0.623);
+    } */
+
+.form-group {
+  padding-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  padding: 10px 50px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #2563eb;
+  /* Un azul más oscuro al pasar el mouse */
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+#main-title {
+  font-size: 2.5em;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  /* Elimina el padding predeterminado de la lista */
+  display: flex;
+  /* Para alinear horizontalmente los elementos del menú */
+  justify-content: center;
+}
+
+.nav-menu {
+  padding-top: 20px;
+}
+.menu-item {
+  margin: 0 15px;
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+}
+
+#video-section {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#video-section iframe {
+  max-width: 100%;
+  width: 600px;
+  height: auto;
+  border-radius: 10px;
+  border: 5px solid #929292;
+}
+
+footer, header {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+  color: #333;
+}
