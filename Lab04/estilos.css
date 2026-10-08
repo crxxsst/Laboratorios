@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    background-color: #004cc6;
+    color: white;
+    text-align: center;
+    
+}
+
+h1:hover {
+    color: #c2f839;
+    /* Cambia el color del texto al pasar el mouse */
+}
+
+/* medidas px , % , rem */
+main {
+    padding: 20px;
+}
+/* id # */
+
+#menu {
+    background-color: #f2f2f2;
+    padding: 25px;
+    text-align: center;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+#video-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espacio entre los videos */
+  /* Margen o espacio encima del video*/
+}
+ 
+#video-section iframe {
+  width: 100%;
+  max-width: 600px;
+  /* Ancho máximo del video */
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #727272;
+  /* Borde alrededor del video */
+}
+
+
+
+/* clases */
+
+.item {
+    display: inline-block;
+    background-color: #004cc6;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.item a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+.form-acciones {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #004cc6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #58f45e;
+    color: #f65f02;
+    font-weight: bold;
+}
+/* color(cambia el texto al pasar el mouse) background-color(cambia el color de fondo al pasar el mouse) */
