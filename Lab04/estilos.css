@@ -83,6 +83,18 @@ main {
     text-align: center;
 }
 
+.form-input {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: 2px solid #004cc6;
+    outline: none;
+}
+
 button {
     background-color: #004cc6;
     color: white;
@@ -98,3 +110,13 @@ button:hover {
     font-weight: bold;
 }
 /* color(cambia el texto al pasar el mouse) background-color(cambia el color de fondo al pasar el mouse) */
+
+.footer {
+    background-color: #004cc6;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
