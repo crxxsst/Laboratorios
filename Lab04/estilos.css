@@ -44,19 +44,23 @@ main {
 }
 
 #contenido {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fffefe;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #c3c3c3;
     border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
     
 }
 
 #video-section {
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 20px; /* Espacio entre los videos */
   /* Margen o espacio encima del video*/
@@ -121,6 +125,13 @@ button:hover {
     background-color: #58f45e;
     color: #f65f02;
     font-weight: bold;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 /* color(cambia el texto al pasar el mouse) background-color(cambia el color de fondo al pasar el mouse) */
 
