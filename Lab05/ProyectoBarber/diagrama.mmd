@@ -1,0 +1,86 @@
+
+
+classDiagram
+direction LR
+
+
+%% %% Clientes
+class Cliente {
+  +int IdCliente
+  +string Nombre
+  +string Apellidos
+  +string Telefono
+  +string Correo
+  +string Contrasena
+  +bool Activo
+}
+
+%% Barberos
+class Barbero {
+  +int IdBarbero
+  +string Nombre
+  +string Apellidos
+  +string Especialidad
+  +string Telefono
+  +bool Activo
+}
+
+%% Categorias
+class Categoria {
+  +int IdCategoria
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+
+%% Servicios
+class Servicio {
+  +int IdServicio
+  +int IdCategoria_FK
+  +string Nombre
+  +string Descripcion
+  +float Precio
+  +int DuracionMinutos
+  +bool Activo
+}
+
+%% Citas
+class Cita {
+  +int IdCita
+  +int IdCliente_FK
+  +int IdBarbero_FK
+  +int IdServicio_FK
+  +date Fecha
+  +string Hora
+  +string Estado
+  +string Observaciones
+}
+
+%% Horarios
+class Horario {
+  +int IdHorario
+  +int IdBarbero_FK
+  +string DiaSemana
+  +string HoraInicio
+  +string HoraFin
+  +bool Disponible
+}
+
+%% Pagos
+class Pago {
+  +int IdPago
+  +int IdCita_FK
+  +float Monto
+  +date FechaPago
+  +string MetodoPago
+  +string Estado
+}
+
+
+%% Relaciones
+Categoria "1" --> "0..*" Servicio : clasifica
+Cliente "1" --> "0..*" Cita : realiza
+Barbero "1" --> "0..*" Cita : atiende
+Servicio "1" --> "0..*" Cita : seleccionado_en
+Barbero "1" --> "0..*" Horario : tiene
+Cita "1" --> "0..1" Pago : genera
