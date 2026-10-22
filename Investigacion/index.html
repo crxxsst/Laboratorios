@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio | Universidad Central</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Universidad Central</a>
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link active" href="index.html">Inicio</a>
+            <a class="nav-link" href="cursos.html">Cursos</a>
+            <a class="nav-link" href="contacto.html">Contacto</a>
+            <a class="nav-link" href="ayuda.html">Ayuda</a>
+        </div>
+    </div>
+</nav>
+
+<header class="encabezado text-center p-4">
+    <h1 class="titulo">Plataforma Educativa</h1>
+    <p>Regístrate y comienza tu aprendizaje.</p>
+</header>
+
+<main class="container my-5">
+    <div class="row g-4">
+
+        <!-- FORMULARIO DE REGISTRO -->
+        <section class="col-md-6">
+            <div class="card tarjeta p-4">
+                <h2 class="h4 text-primary">Registro de estudiante</h2>
+                <p>Completa tus datos para registrarte.</p>
+
+                <form action="cursos.html">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input type="text" id="nombre" class="form-control mb-3"
+                           placeholder="Tu nombre" required>
+
+                    <label for="correo" class="form-label">Correo electrónico</label>
+                    <input type="email" id="correo" class="form-control mb-3"
+                           placeholder="correo@ejemplo.com" required>
+
+                    <label for="clave" class="form-label">Contraseña</label>
+                    <input type="password" id="clave" class="form-control mb-3"
+                           minlength="6" placeholder="Mínimo 6 caracteres" required>
+
+                    <label for="genero" class="form-label">Género</label>
+                    <select id="genero" class="form-select mb-3" required>
+                        <option value="">Selecciona una opción</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <option>Prefiero no indicarlo</option>
+                    </select>
+
+                    <p class="mb-2">Áreas de interés</p>
+                    <div class="form-check">
+                        <input type="checkbox" id="programacion" class="form-check-input">
+                        <label for="programacion" class="form-check-label">Programación</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" id="diseno" class="form-check-input">
+                        <label for="diseno" class="form-check-label">Diseño web</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary boton w-100">
+                        Registrarme
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- INFORMACION DE LA PLATAFORMA -->
+        <section class="col-md-6">
+            <div class="card tarjeta p-4 h-100">
+                <h2 class="h4 text-primary">Bienvenido</h2>
+                <p>En la Universidad Central puedes desarrollar nuevas habilidades
+                   y fortalecer tus conocimientos.</p>
+
+                <h3 class="h5 mt-3">Nuestros cursos</h3>
+                <p>Conoce nuestras opciones de aprendizaje.</p>
+                <a href="cursos.html" class="btn btn-outline-primary boton">
+                    Ver cursos
+                </a>
+
+                <h3 class="h5 mt-4">¿Necesitas ayuda?</h3>
+                <p>Consulta las preguntas frecuentes o comunícate con nosotros.</p>
+                <a href="ayuda.html" class="btn btn-outline-primary boton">
+                    Ir a ayuda
+                </a>
+            </div>
+        </section>
+        
+
+    </div>
+</main>
+<section id="video-section">
+    <iframe
+        width="560"
+        height="315"
+        src="https://youtu.be/JhLa1bpzNVM?si=zI4Iy4gNZ4VP4Dqp"
+        title="Video de YouTube"
+        allowfullscreen>
+    </iframe>
+</section>
+<footer class="pie-pagina text-white text-center p-4">
+    <p>Universidad Central © 2026</p>
+    <a href="mailto:torrezrivas@uc.ac.cr">Contáctanos</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+
+/* Diseño general */
+body {
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+    color: #263238;
+}
+
+/* Sombra del texto */
+.encabezado {
+    background: linear-gradient(135deg, #0d6efd, #084298);
+    color: white;
+}
+
+.titulo {
+    text-shadow: 2px 3px 5px #333;
+}
+
+.titulo-seccion {
+    color: #084298;
+    text-shadow: 1px 1px 3px #bbb;
+}
+
+/* Sombras y transiciones de tarjetas */
+.tarjeta {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #0002;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 10px 22px #0004;
+    transform: translateY(-4px);
+}
+
+/* Botones y menú */
+.boton {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #cfe2ff;
+}
+
+/* Animación de entrada para cada página */
+body {
+    animation: aparecer 0.4s ease;
+}
+
+#video-section {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#video-section iframe {
+    max-width: 100%;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Transición entre documentos en navegadores compatibles */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: salir 0.2s ease;
+}
+
+::view-transition-new(root) {
+    animation: entrar 0.3s ease;
+}
+
+@keyframes salir {
+    to { opacity: 0; }
+}
+
+@keyframes entrar {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animaciones reducidas si el usuario lo solicita */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
