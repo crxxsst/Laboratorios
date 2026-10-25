@@ -1,0 +1,372 @@
+
+/* =====================================
+   ESTILO GENERAL DE BARBER SHOP
+   ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #f8f5df;
+    color: #34445a;
+    line-height: 1.6;
+}
+
+img {
+    margin: 15px auto;
+    max-width: 100%;
+    height: 200px;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+
+
+}
+
+header p {
+    color: white;
+    margin-top: 4px;
+}
+
+
+/* BARRA DE NAVEGACIÓN */
+
+nav {
+    background: linear-gradient(135deg, #0e66ea, #f5f5f6, #f6141b, #fcfcfd);
+    color: rgb(9, 9, 9);
+    padding: 12px 0;
+    text-align: center;
+    font-family: Times New Roman, serif;
+  
+
+}
+
+
+
+main {
+    min-height: 300px;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 30px;
+
+    background-color: #fffdf1;
+    border-radius: 12px;
+
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    transition: box-shadow 0.3s ease;
+}
+
+.contenedor:hover {
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+    color: #34445a;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #2971d5;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+/* =====================================
+   IMÁGENES
+   ===================================== */
+
+img {
+    max-width: 100%;
+}
+
+header img {
+    display: block;
+}
+
+.imagen-principal {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.imagen-principal:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+/* =====================================
+   TARJETAS DE SERVICIOS Y BARBEROS
+   ===================================== */
+
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.tarjeta {
+    width: 280px;
+    padding: 22px;
+
+    background-color: rgb(251, 249, 249);
+    border: 1px solid #e0dfd2;
+    border-radius: 10px;
+    text-align: center;
+
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.18);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+
+    transition: transform 0.4s ease;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.03);
+}
+
+/* =====================================
+   FORMULARIOS
+   ===================================== */
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 11px 12px;
+
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: white;
+    color: #34445a;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* =====================================
+   BOTONES Y ENLACES DE ACCIÓN
+   ===================================== */
+
+button,
+.boton,
+main a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 8px 4px;
+
+    background-color: #2971d5;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+
+/* =====================================
+   TABLAS
+   ===================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.12);
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #174f9c;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f3f3ec;
+}
+
+/* =====================================
+   PIE DE PÁGINA
+   ===================================== */
+
+footer {
+    margin-top: 40px;
+    padding: 22px;
+
+    background: linear-gradient(
+        100deg,
+        #0755c9,
+        #f5f5f6,
+        #d92712,
+        #fcfcfd
+    );
+
+    color: rgb(13, 13, 13);
+    text-align: center;
+
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.12);
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* =====================================
+   DISEÑO RESPONSIVO PARA CELULARES
+   ===================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 4px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 7px 9px;
+    }
+
+    .contenedor {
+        width: 94%;
+        padding: 18px;
+        margin: 22px auto;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .tarjetas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .imagen-principal {
+        height: 220px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
+
+/* =====================================
+   ACCESIBILIDAD
+   ===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
