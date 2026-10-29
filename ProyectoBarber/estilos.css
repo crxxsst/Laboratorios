@@ -12,6 +12,7 @@ body {
     background-color: #f8f5df;
     color: #34445a;
     line-height: 1.6;
+    
 }
 
 img {
@@ -39,7 +40,6 @@ nav {
     padding: 12px 0;
     text-align: center;
     font-family: Times New Roman, serif;
-  
 
 }
 
@@ -62,6 +62,8 @@ main {
 
     transition: box-shadow 0.3s ease;
 }
+
+
 
 .contenedor:hover {
     box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.18);
@@ -161,11 +163,16 @@ header img {
 }
 
 /* FORMULARIOS */
-
 form {
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
+    padding: 20px;
+    background-color: #c2c2c2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 label {
@@ -284,6 +291,8 @@ footer {
 
 footer p {
     margin-bottom: 0;
+    font-size: 14px;
+    font-family: "Times New Roman", serif;
 }
 
 
@@ -342,5 +351,19 @@ footer p {
     th,
     td {
         padding: 8px;
+    }
+}
+
+/* =====================================
+   ACCESIBILIDAD
+   ===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }
