@@ -1,7 +1,5 @@
 
-/* =====================================
-   ESTILO GENERAL DE BARBER SHOP
-   ===================================== */
+/* ESTILO GENERAL DEL SITIO WEB */
 
 * {
     margin: 0;
@@ -86,9 +84,7 @@ p {
     margin-bottom: 12px;
 }
 
-/* =====================================
-   IMÁGENES
-   ===================================== */
+/* IMAGENES */
 
 img {
     max-width: 100%;
@@ -118,9 +114,7 @@ header img {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
-/* =====================================
-   TARJETAS DE SERVICIOS Y BARBEROS
-   ===================================== */
+/* TARJETAS DE SERVICIOS Y BARBEROS */
 
 .tarjetas {
     display: flex;
@@ -166,9 +160,7 @@ header img {
     transform: scale(1.03);
 }
 
-/* =====================================
-   FORMULARIOS
-   ===================================== */
+/* FORMULARIOS */
 
 form {
     width: 100%;
@@ -211,9 +203,7 @@ textarea:focus {
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-/* =====================================
-   BOTONES Y ENLACES DE ACCIÓN
-   ===================================== */
+/* CONTROLES DE BOTONES Y ENLACES */
 
 button,
 .boton,
@@ -244,9 +234,7 @@ main a {
 
 
 
-/* =====================================
-   TABLAS
-   ===================================== */
+/* TABLAS */
 
 table {
     width: 100%;
@@ -272,9 +260,9 @@ tr:nth-child(even) {
     background-color: #f3f3ec;
 }
 
-/* =====================================
-   PIE DE PÁGINA
-   ===================================== */
+
+   /* PIE DE PÁGINA */
+  
 
 footer {
     margin-top: 40px;
@@ -298,9 +286,9 @@ footer p {
     margin-bottom: 0;
 }
 
-/* =====================================
-   DISEÑO RESPONSIVO PARA CELULARES
-   ===================================== */
+
+   /* DISEÑO RESPONSIVO PARA CELULARES */
+ 
 
 @media (max-width: 700px) {
 
@@ -354,19 +342,5 @@ footer p {
     th,
     td {
         padding: 8px;
-    }
-}
-
-/* =====================================
-   ACCESIBILIDAD
-   ===================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
     }
 }
