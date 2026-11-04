@@ -43,7 +43,6 @@ btnAdd.addEventListener("click", async () => guardarEstudiante());
 btnClear.addEventListener("click", async () => {
   txtSearch.value = "";
 
-  Swal.fire("SweetAlert2 is working!");
   await consultarEstudiantes();
 });
 btnCancel.addEventListener("click", async () => limpiarFormulario());
@@ -68,11 +67,11 @@ tbody.addEventListener("click", async (event) => {
   const id = target.getAttribute("data-id");
 
   // 1. Consultar el estudiante por su id
-  const { data, error } = await supabase.from("estudiantes").select("id,nombre,apellido,correo,carrera").eq("id", id).single();
+  const { data, error } = await supabase.from("estudiantes").select("id,nombre,apellido,correo,carrera,fechaNac").eq("id", id).single();
 
   if (error) {
     console.error(error);
-    Swal.fire("Error al cargar estudiante");
+    Swal.fire({ icon: "error", title: "Error", text: "No se pudo cargar el estudiante: " + error.message });
 
     return;
   }
@@ -80,8 +79,9 @@ tbody.addEventListener("click", async (event) => {
   txtId.value = data.id;
   txtNombre.value = data.nombre;
   txtApellido.value = data.apellido;
-  txtCorreo.value = data.correo;
-  txtCarrera.value = data.carrera;
+  txtCorreo.value = data.correo ?? "";
+  txtCarrera.value = data.carrera ?? "";
+  txtFechaNac.value = data.fechaNac ?? ""; // formato YYYY-MM-DD
   // 3. Cambiar el botón de agregar a actualizar
   btnAdd.textContent = "Actualizar";
   tituloForm.textContent = "Editar Estudiante";
@@ -89,7 +89,14 @@ tbody.addEventListener("click", async (event) => {
 
 /*
 // funcion de flecha
-// const consultarEstudiantes = async () => {};
+// // Convierte YYYY-MM-DD a DD/MM/YYYY sin problemas de zona horaria
+const formatearFecha = (fecha) => {
+  if (!fecha) return "";
+  const [y, m, d] = fecha.split("-");
+  return `${d}/${m}/${y}`;
+};
+
+const consultarEstudiantes = async () => {};
 // funcion tradicional
 // function consultarEstudiantes() {}
 
@@ -109,7 +116,7 @@ const consultarEstudiantes = async () => {
   // usamos el cliente de Supabase para hacer una consulta a la tabla "estudiantes"
   // json: { "data": [], "error": null }
   const search = txtSearch.value.trim() || ""; // si el valor es vacío, se asigna una cadena vacía
-  const query = supabase.from("estudiantes").select("id,nombre,apellido,correo,carrera");
+  const query = supabase.from("estudiantes").select("id,nombre,apellido,correo,carrera,fechaNac");
 
   // filtros
   if (search.length > 0) {
@@ -120,7 +127,7 @@ const consultarEstudiantes = async () => {
 
   if (error) {
     console.error(error);
-    Swal.fire("Error cargando estudiantes", error.message, "error");
+    Swal.fire({ icon: "error", title: "Error cargando estudiantes", text: error.message });
     return;
   }
 
@@ -137,6 +144,7 @@ const consultarEstudiantes = async () => {
         <td>${r.apellido ?? ""}</td>
         <td>${r.correo ?? ""}</td>
         <td>${r.carrera ?? ""}</td>
+        <td>${formatearFecha(r.fechaNac)}</td>
         <td>
           <button class="btnEditar" data-id="${r.id}">Editar</button>
           <button class="btnEliminar" data-id="${r.id}">Eliminar</button>
@@ -153,20 +161,21 @@ const guardarEstudiante = async () => {
     apellido: txtApellido.value.trim(),
     correo: txtCorreo.value.trim(),
     carrera: txtCarrera.value.trim(),
+    fechaNac: txtFechaNac.value || null,
   };
 
-  if (!estudiante.nombre || !estudiante.apellido || !estudiante.correo || !estudiante.carrera) {
-    Swal.fire("Por favor, complete todos los campos");
+  if (!estudiante.nombre || !estudiante.apellido || !estudiante.correo || !estudiante.carrera || !estudiante.fechaNac) {
+    Swal.fire({ icon: "warning", title: "Campos incompletos", text: "Por favor, complete todos los campos" });
     return;
   }
 
   if (txtId.value) {
     // Actualizar estudiante existente
-    const { error } = await supabase.from("estudiantes").update([estudiante]).eq("id", txtId.value);
+    const { error } = await supabase.from("estudiantes").update(estudiante).eq("id", txtId.value);
 
     if (error) {
       console.error(error);
-      Swal.fire("Error actualizando estudiante");
+      Swal.fire({ icon: "error", title: "Error actualizando estudiante", text: error.message });
       return;
     }
   } else {
@@ -175,24 +184,41 @@ const guardarEstudiante = async () => {
 
     if (error) {
       console.error(error);
-      Swal.fire("Error guardando estudiante");
+      Swal.fire({ icon: "error", title: "Error guardando estudiante", text: error.message });
       return;
     }
   }
 
-  Swal.fire("Estudiante guardado exitosamente");
+  Swal.fire({
+    icon: "success",
+    title: "¡Listo!",
+    text: txtId.value ? "Estudiante actualizado exitosamente" : "Estudiante guardado exitosamente",
+    timer: 2000,
+    showConfirmButton: false,
+  });
   limpiarFormulario();
   consultarEstudiantes();
 };
 
 const eliminarEstudiante = async (id) => {
-  if (!confirm("¿Está seguro de eliminar este estudiante?")) return;
+  const confirmacion = await Swal.fire({
+    icon: "question",
+    title: "¿Eliminar estudiante?",
+    text: "Esta acción no se puede deshacer",
+    showCancelButton: true,
+    confirmButtonText: "Sí, eliminar",
+    cancelButtonText: "Cancelar",
+    confirmButtonColor: "#EB6763",
+  });
+  if (!confirmacion.isConfirmed) return;
+
   const { error } = await supabase.from("estudiantes").delete().eq("id", id);
 
   if (error) {
     console.error(error);
-    Swal.fire("Error al eliminar");
+    Swal.fire({ icon: "error", title: "Error al eliminar", text: error.message });
   } else {
+    Swal.fire({ icon: "success", title: "Estudiante eliminado", timer: 1500, showConfirmButton: false });
     consultarEstudiantes();
   }
 };
@@ -205,6 +231,7 @@ const limpiarFormulario = () => {
   txtApellido.value = "";
   txtCorreo.value = "";
   txtCarrera.value = "";
+  txtFechaNac.value = "";
   btnAdd.textContent = "Agregar";
   tituloForm.textContent = "Agregar Estudiantes";
 };

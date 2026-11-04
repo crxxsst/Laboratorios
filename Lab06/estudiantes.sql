@@ -48,3 +48,7 @@ INSERT INTO public.estudiantes (nombre, apellido, correo, carrera) VALUES
 ('JARLEY ANTONIO', 'JEREZ MORALES', 'jarleym213@gmail.com', 'Info'),
 
 ('AETHAN JAMAL', 'LOWE GUERRERO', 'jamalaethan@gmail.com', 'Info');
+
+
+-- Agregar el campo de fecha de nacimiento (ejecutar en el SQL Editor de Supabase)
+ALTER TABLE public.estudiantes ADD COLUMN IF NOT EXISTS "fechaNac" date NULL;
