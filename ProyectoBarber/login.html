@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso de Administradores</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Barber Shop</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="acceso">
+            <!-- Cuando exista el backend, este formulario enviará usuario y contraseña al servidor para validarlos -->
+            <form action="admin.html" method="POST" class="registro-form">
+                <div class="insignia">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                </div>
+                <h2>Acceso de Administradores</h2>
+                <p class="form-sub">Ingresa tus credenciales para administrar la barbería.</p>
+
+                <div class="grupo">
+                    <label for="usuario">Usuario</label>
+                    <div class="entrada">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+                        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" autocomplete="username" required>
+                    </div>
+                </div>
+
+                <div class="grupo">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="entrada">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" autocomplete="current-password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-registrar">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+                    Ingresar
+                </button>
+                <a href="index.html" class="cancelar">Volver al inicio</a>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Barber Shop. Sistema de Citas.</p>
+        </div>
+    </footer>
+</body>
+</html>

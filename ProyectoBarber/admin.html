@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Barber Shop</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="admin.html">Administración</a>
+                <a class="nav-link" href="index.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Panel de Administración</h1>
+        <p>Agrega barberos, tipos de cortes, servicios y horarios</p>
+    </header>
+
+    <main>
+
+        <div class="pestanas">
+            <a href="#barberos">Barberos</a>
+            <a href="#categorias">Tipos de cortes</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#horarios">Horarios</a>
+        </div>
+
+        <!-- ========== BARBEROS ========== -->
+        <section class="panel" id="barberos">
+            <div class="contenedor">
+                <h2>Agregar barbero</h2>
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    <div class="form-grid">
+                        <div>
+                            <label for="b-nombre">Nombre:</label>
+                            <input type="text" id="b-nombre" name="nombre" required>
+                        </div>
+                        <div>
+                            <label for="b-apellidos">Apellidos:</label>
+                            <input type="text" id="b-apellidos" name="apellidos" required>
+                        </div>
+                        <div>
+                            <label for="b-especialidad">Especialidad:</label>
+                            <input type="text" id="b-especialidad" name="especialidad" placeholder="Ej: Degradados" required>
+                        </div>
+                        <div>
+                            <label for="b-telefono">Teléfono:</label>
+                            <input type="tel" id="b-telefono" name="telefono" required>
+                        </div>
+                        <div class="completo">
+                            <label for="b-foto">Foto de perfil:</label>
+                            <input type="file" id="b-foto" name="foto" accept="image/png, image/jpeg, image/webp">
+                            <small class="ayuda">JPG, PNG o WEBP. Máximo 2 MB.</small>
+                        </div>
+                    </div>
+                    <button type="submit">Agregar barbero</button>
+                </form>
+            </div>
+            <div class="contenedor">
+                <h2>Barberos registrados</h2>
+                <div class="tabla-scroll">
+                    <table>
+                        <thead><tr><th>Foto</th><th>Nombre</th><th>Especialidad</th><th>Teléfono</th></tr></thead>
+                        <tbody>
+                            <tr><td colspan="4" class="vacio">Aún no hay barberos registrados.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CATEGORÍAS ========== -->
+        <section class="panel" id="categorias">
+            <div class="contenedor">
+                <h2>Agregar tipo de corte</h2>
+                <form>
+                    <label for="c-nombre">Nombre:</label>
+                    <input type="text" id="c-nombre" name="nombre" placeholder="Ej: Cortes para hombre" required>
+
+                    <label for="c-descripcion">Descripción:</label>
+                    <textarea id="c-descripcion" name="descripcion"></textarea>
+
+                    <button type="submit">Agregar tipo de corte</button>
+                </form>
+            </div>
+            <div class="contenedor">
+                <h2>Tipos de cortes registrados</h2>
+                <div class="tabla-scroll">
+                    <table>
+                        <thead><tr><th>Nombre</th><th>Descripción</th></tr></thead>
+                        <tbody>
+                            <tr><td colspan="2" class="vacio">Aún no hay tipos de cortes registrados.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SERVICIOS ========== -->
+        <section class="panel" id="servicios">
+            <div class="contenedor">
+                <h2>Agregar servicio</h2>
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    <div class="form-grid">
+                        <div>
+                            <label for="s-nombre">Nombre:</label>
+                            <input type="text" id="s-nombre" name="nombre" required>
+                        </div>
+                        <div>
+                            <label for="s-categoria">Tipo de corte:</label>
+                            <select id="s-categoria" name="categoria" required>
+                                <option value="">Selecciona un tipo de corte</option>
+                                <option>Cortes para hombre</option>
+                                <option>Cortes para mujer</option>
+                                <option>Cortes para niños</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="s-precio">Precio (₡):</label>
+                            <input type="number" id="s-precio" name="precio" min="0" step="500" required>
+                        </div>
+                        <div>
+                            <label for="s-duracion">Duración (minutos):</label>
+                            <input type="number" id="s-duracion" name="duracion" min="5" step="5" required>
+                        </div>
+                        <div class="completo">
+                            <label for="s-descripcion">Descripción:</label>
+                            <textarea id="s-descripcion" name="descripcion"></textarea>
+                        </div>
+                        <div class="completo">
+                            <label for="s-imagen">Imagen del corte:</label>
+                            <input type="file" id="s-imagen" name="imagen" accept="image/png, image/jpeg, image/webp">
+                            <small class="ayuda">JPG, PNG o WEBP. Máximo 2 MB.</small>
+                        </div>
+                    </div>
+                    <button type="submit">Agregar servicio</button>
+                </form>
+            </div>
+            <div class="contenedor">
+                <h2>Servicios registrados</h2>
+                <div class="tabla-scroll">
+                    <table>
+                        <thead><tr><th>Imagen</th><th>Servicio</th><th>Tipo</th><th>Precio</th><th>Duración</th></tr></thead>
+                        <tbody>
+                            <tr><td colspan="5" class="vacio">Aún no hay servicios registrados.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== HORARIOS ========== -->
+        <section class="panel" id="horarios">
+            <div class="contenedor">
+                <h2>Agregar horario</h2>
+                <form>
+                    <div class="form-grid">
+                        <div class="completo">
+                            <label for="h-barbero">Barbero:</label>
+                            <select id="h-barbero" name="barbero" required>
+                                <option value="">Selecciona un barbero</option>
+                                <option>Carlos Rodríguez</option>
+                                <option>Andrés Vargas</option>
+                                <option>Daniel Mora</option>
+                            </select>
+                        </div>
+                        <div class="completo">
+                            <label for="h-dia">Día de la semana:</label>
+                            <select id="h-dia" name="dia" required>
+                                <option>Lunes</option>
+                                <option>Martes</option>
+                                <option>Miércoles</option>
+                                <option>Jueves</option>
+                                <option>Viernes</option>
+                                <option>Sábado</option>
+                                <option>Domingo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="h-inicio">Hora de inicio:</label>
+                            <input type="time" id="h-inicio" name="inicio" required>
+                        </div>
+                        <div>
+                            <label for="h-fin">Hora de fin:</label>
+                            <input type="time" id="h-fin" name="fin" required>
+                        </div>
+                    </div>
+                    <button type="submit">Agregar horario</button>
+                </form>
+            </div>
+            <div class="contenedor">
+                <h2>Horarios registrados</h2>
+                <div class="tabla-scroll">
+                    <table>
+                        <thead><tr><th>Barbero</th><th>Día</th><th>Inicio</th><th>Fin</th></tr></thead>
+                        <tbody>
+                            <tr><td colspan="4" class="vacio">Aún no hay horarios registrados.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Barber Shop. Sistema de Citas.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

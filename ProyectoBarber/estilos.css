@@ -1,122 +1,152 @@
+/* BARBER SHOP · TEMA OSCURO (paleta azul/rojo/blanco, fuente Georgia) */
 
-/* ESTILO GENERAL DEL SITIO WEB */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    color-scheme: dark;
+    --azul: #2971d5;
+    --azul-vivo: #0e66ea;
+    --azul-oscuro: #174f9c;
+    --azul-claro: #6aa5f5;
+    --rojo: #f6141b;
+    --rojo-oscuro: #d92712;
+    --blanco: #fcfcfd;
+    --fondo: #0a0e16;
+    --superficie: #111826;
+    --superficie-2: #172033;
+    --borde: #27344d;
+    --texto: #e6eaf2;
+    --suave: #9aa7bd;
+    --franja: linear-gradient(100deg, var(--azul-vivo), var(--blanco), var(--rojo), var(--blanco));
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { background: var(--fondo); }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: Georgia, "Times New Roman", serif;
-    background-color: #f8f5df;
-    color: #34445a;
     line-height: 1.6;
-
+    color: var(--texto);
+    background-color: var(--fondo);
+    background-image:
+        radial-gradient(900px 420px at 15% -10%, rgba(14, 102, 234, .14), transparent 70%),
+        radial-gradient(800px 380px at 95% -5%, rgba(246, 20, 27, .09), transparent 70%);
+    background-repeat: no-repeat;
 }
-
-img {
-    margin: 15px auto;
-    max-width: 100%;
-    height: 200px;
-    display: block;
-    object-fit: cover;
-    border-radius: 10px;
-
-
-}
-
-header p {
-    color: white;
-    margin-top: 4px;
-}
-
-
-/* BARRA DE NAVEGACIÓN */
-
-nav {
-    background: linear-gradient(135deg, #0e66ea, #f5f5f6, #f6141b, #fcfcfd);
-    color: rgb(9, 9, 9);
-    padding: 12px 0;
-    text-align: center;
-    font-family: Times New Roman, serif;
-
-}
-
-
 
 main {
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 1100px;
     min-height: 300px;
+    margin: 0 auto;
+    padding: 10px 5% 30px;
 }
+
+/* ---------- Navegación y pie ---------- */
+
+nav, footer {
+    background: #0c1220 var(--franja) no-repeat bottom / 100% 4px;
+    text-align: center;
+}
+
+nav {
+    padding: 12px 0 16px;
+    font-family: "Times New Roman", serif;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .5);
+}
+
+nav .container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+}
+
+.navbar-brand {
+    color: var(--blanco);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.nav-link {
+    padding: 6px 14px;
+    color: #cfd9ec;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color .3s, border-color .3s;
+}
+
+.nav-link:hover { color: var(--blanco); border-color: var(--azul-claro); }
+.nav-link.active { color: var(--blanco); border-color: var(--rojo); }
+
+footer {
+    flex-shrink: 0;
+    margin-top: 40px;
+    padding: 22px;
+    background-position: top;
+    color: var(--suave);
+    box-shadow: 0 -3px 14px rgba(0, 0, 0, .45);
+}
+
+footer p { margin: 0; }
+
+/* ---------- Títulos y texto ---------- */
+
+header { text-align: center; padding: 34px 5% 8px; }
+header h1 { color: var(--blanco); font-size: 36px; line-height: 1.2; letter-spacing: .5px; }
+header p { color: var(--suave); margin-top: 4px; }
+
+h2 { color: var(--texto); text-align: center; font-size: 30px; margin: 10px 0 25px; }
+main > h2 { margin-top: 40px; }
+h3 { color: var(--azul-claro); font-size: 22px; margin-bottom: 12px; }
+p { margin-bottom: 12px; }
+strong { color: var(--blanco); }
 
 .contenedor {
     width: 90%;
     max-width: 1100px;
     margin: 35px auto;
     padding: 30px;
-
-    background-color: #fffdf1;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
     border-radius: 12px;
-
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .45);
+    transition: box-shadow .3s, border-color .3s;
 }
 
-
-
-.contenedor:hover {
-    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.18);
-}
-
-h2 {
-    color: #34445a;
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 25px;
-}
-
-h3 {
-    color: #2971d5;
-    font-size: 22px;
-    margin-bottom: 12px;
-}
-
-p {
-    margin-bottom: 12px;
-}
-
-/* IMAGENES */
+.contenedor:hover { border-color: #33456a; box-shadow: 0 .75rem 1.75rem rgba(0, 0, 0, .55); }
 
 img {
+    display: block;
     max-width: 100%;
-}
-
-header img {
-    display: block;
-}
-
-.imagen-principal {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
-    object-fit: cover;
-    margin: 20px auto;
+    height: 200px;
+    margin: 15px auto;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--borde);
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .5);
 }
 
-.imagen-principal:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-}
-
-/* TARJETAS DE SERVICIOS Y BARBEROS */
+/* ---------- Tarjetas ---------- */
 
 .tarjetas {
     display: flex;
@@ -130,240 +160,334 @@ header img {
 .tarjeta {
     width: 280px;
     padding: 22px;
-
-    background-color: rgb(251, 249, 249);
-    border: 1px solid #e0dfd2;
-    border-radius: 10px;
     text-align: center;
-
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.12);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    background: var(--superficie-2);
+    border: 1px solid var(--borde);
+    border-top: 3px solid var(--azul);
+    border-radius: 10px;
+    box-shadow: 0 .125rem .5rem rgba(0, 0, 0, .4);
+    transition: transform .3s, box-shadow .3s, border-top-color .3s;
 }
 
 .tarjeta:hover {
     transform: translateY(-7px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.18);
+    border-top-color: var(--rojo);
+    box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, .6);
 }
 
-.tarjeta img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+.tarjeta h2 { margin: 0 0 10px; font-size: 24px; }
+.tarjeta img { width: 100%; height: 180px; margin-bottom: 15px; object-fit: cover; border-radius: 8px; }
 
-    transition: transform 0.4s ease;
-}
+/* ---------- Formularios ---------- */
 
-.tarjeta:hover img {
-    transform: scale(1.03);
-}
-
-/* FORMULARIOS */
 form {
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
-    padding: 20px;
-    background-color: #c2c2c2;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    padding: 26px 28px 22px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .45);
 }
 
-label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 6px;
-    font-weight: bold;
-}
+.contenedor form { padding: 0; background: none; border: 0; box-shadow: none; }
 
-input,
-select,
-textarea {
+label { display: block; margin: 15px 0 6px; font-weight: bold; }
+
+form > label:first-child,
+.form-grid > div:nth-child(-n+2) > label { margin-top: 0; }
+
+form select + p, form input + p { margin-top: 18px; }
+
+input, select, textarea {
     display: block;
     width: 100%;
     padding: 11px 12px;
-
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    background-color: white;
-    color: #34445a;
-
     font-family: inherit;
     font-size: 15px;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    color: var(--texto);
+    background: #0c121e;
+    border: 1px solid #2e3d5a;
+    border-radius: 6px;
+    transition: border-color .3s, box-shadow .3s;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input::placeholder, textarea::placeholder { color: #67768f; }
+input:hover, select:hover, textarea:hover { border-color: #3d5075; }
+
+input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: #86b7fe;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 .25rem rgba(41, 113, 213, .35);
 }
 
-/* CONTROLES DE BOTONES Y ENLACES */
+select option { background: #0c121e; color: var(--texto); }
+textarea { min-height: 90px; resize: vertical; }
 
-button,
-.boton,
-main a {
+/* ---------- Botones y enlaces de acción ---------- */
+
+button, main a {
     display: inline-block;
-    padding: 10px 20px;
     margin: 8px 4px;
-
-    background-color: #2971d5;
-    color: white;
-    text-decoration: none;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--blanco);
     text-align: center;
-
-    border: none;
+    text-decoration: none;
+    background: var(--azul);
+    border: 1px solid transparent;
     border-radius: 6px;
     cursor: pointer;
-
-    font-family: inherit;
-    font-size: 15px;
-
-    
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: background-color .3s, transform .3s, box-shadow .3s;
 }
 
+button:hover, main a:hover {
+    background: var(--azul-vivo);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(14, 102, 234, .35);
+}
 
+button:focus-visible, main a:focus-visible, .nav-link:focus-visible {
+    outline: 2px solid var(--azul-claro);
+    outline-offset: 2px;
+}
 
-/* TABLAS */
+/* Un botón dentro de un enlace no se dibuja doble */
+main a:has(> button),
+main a:has(> button):hover {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+.secundario { background: none; color: #ff6b70; border-color: var(--rojo-oscuro); }
+.secundario:hover { background: var(--rojo-oscuro); color: var(--blanco); box-shadow: 0 6px 14px rgba(246, 20, 27, .3); }
+
+/* ---------- Tablas ---------- */
 
 table {
     width: 100%;
-    border-collapse: collapse;
     margin: 20px 0;
-    background-color: white;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.12);
+    border-collapse: collapse;
+    background: var(--superficie-2);
+    box-shadow: 0 .125rem .5rem rgba(0, 0, 0, .4);
 }
 
-th,
-td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #dee2e6;
+th, td { padding: 12px; text-align: left; border: 1px solid var(--borde); }
+th { background: var(--azul-oscuro); color: var(--blanco); }
+tr:nth-child(even) td { background: rgba(255, 255, 255, .03); }
+tbody tr:hover td { background: rgba(41, 113, 213, .12); }
+
+.tabla-scroll { width: 100%; overflow-x: auto; }
+.vacio { padding: 18px; text-align: center; color: var(--suave); font-style: italic; }
+
+/* ---------- Panel de administración ---------- */
+
+.pestanas { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 0 6px; }
+.pestanas a { margin: 0; color: var(--suave); background: var(--superficie-2); border-color: var(--borde); }
+.pestanas a:hover { color: var(--blanco); background: var(--azul); border-color: var(--azul); }
+
+.panel { scroll-margin-top: 20px; }
+.panel .contenedor { margin: 22px auto; }
+.panel form { max-width: none; margin: 0; }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 20px; }
+.form-grid .completo { grid-column: 1 / -1; }
+
+/* ---------- Inicio: registro de clientes ---------- */
+
+.inicio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0 10px;
 }
 
-th {
-    background-color: #174f9c;
-    color: white;
+.bienvenida { text-align: center; }
+
+/* El logo tiene fondo blanco: se invierte para fundirlo con el fondo oscuro */
+.logo {
+    width: 100%;
+    max-width: 440px;
+    height: 250px;
+    margin: 0 auto 6px;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    filter: invert(1) hue-rotate(180deg);
+    mix-blend-mode: screen;
 }
 
-tr:nth-child(even) {
-    background-color: #f3f3ec;
+.bienvenida h1 { color: var(--blanco); font-size: 44px; line-height: 1.1; letter-spacing: 1px; text-transform: uppercase; }
+.lema { margin: 10px 0 22px; color: var(--suave); font-size: 18px; font-style: italic; }
+
+.ventajas { display: inline-block; text-align: left; list-style: none; }
+.ventajas li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+
+/* Íconos SVG de línea */
+.ventajas svg, .entrada svg, .btn-registrar svg, .insignia svg, .foto-barbero svg, .foto-corte svg {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-
-   /* PIE DE PÁGINA */
-  
-
-footer {
-    margin-top: 40px;
-    padding: 22px;
-
-    background: linear-gradient(
-        100deg,
-        #0755c9,
-        #f5f5f6,
-        #d92712,
-        #fcfcfd
-    );
-
-    color: rgb(13, 13, 13);
-    text-align: center;
-
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.12);
+.ventajas svg {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    padding: 4px;
+    border-radius: 50%;
+    background: var(--azul);
+    stroke: var(--blanco);
+    stroke-width: 3;
 }
 
-footer p {
-    margin-bottom: 0;
-    font-size: 14px;
-    font-family: "Times New Roman", serif;
+.registro-form {
+    position: relative;
+    overflow: hidden;
+    max-width: none;
+    margin: 0;
+    padding: 42px 34px 28px;
+    border-radius: 16px;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, .6);
 }
 
+/* Franja de poste de barbería */
+.registro-form::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 10px;
+    background: repeating-linear-gradient(-45deg,
+        var(--azul-vivo) 0 12px, var(--blanco) 12px 24px,
+        var(--rojo) 24px 36px, var(--blanco) 36px 48px) 0 0 / 68px 100%;
+    animation: poste 3s linear infinite;
+}
 
-   /* DISEÑO RESPONSIVO PARA CELULARES */
- 
+@keyframes poste { to { background-position: 68px 0; } }
+
+.registro-form h2 { margin: 0 0 4px; font-size: 28px; }
+.form-sub { margin-bottom: 8px; text-align: center; color: var(--suave); }
+
+.grupo { margin-top: 16px; }
+.grupo label { margin: 0 0 6px; font-size: 14px; letter-spacing: .4px; text-transform: uppercase; color: var(--suave); }
+
+.entrada { position: relative; }
+
+.entrada svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    stroke: var(--azul-claro);
+    stroke-width: 1.8;
+    pointer-events: none;
+    transition: stroke .3s;
+}
+
+.entrada:focus-within svg { stroke: var(--blanco); }
+.entrada input { padding: 13px 14px 13px 46px; font-size: 16px; }
+
+.btn-registrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin: 26px 0 6px;
+    padding: 14px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    background: linear-gradient(135deg, var(--azul-vivo), var(--azul-oscuro));
+}
+
+.btn-registrar:hover { background: linear-gradient(135deg, #2b86ff, var(--azul)); }
+.btn-registrar svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; }
+
+.registro-form .cancelar,
+.registro-form .cancelar:hover { display: block; margin: 6px 0 0; padding: 8px; background: none; border: 0; box-shadow: none; transform: none; }
+.registro-form .cancelar { color: var(--suave); }
+.registro-form .cancelar:hover { color: #ff6b70; text-decoration: underline; }
+
+.acceso { max-width: 440px; margin: 40px auto 10px; }
+.insignia { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 14px; background: var(--superficie-2); border: 1px solid var(--borde); border-radius: 50%; }
+.insignia svg { width: 26px; height: 26px; stroke: var(--azul-claro); stroke-width: 1.8; }
+
+.admin-link { color: var(--suave); font-size: 14px; text-decoration: none; transition: color .3s; }
+.admin-link:hover { color: var(--blanco); text-decoration: underline; }
+
+/* ---------- Fotos: barberos y cortes (sirven para <img> o para el marcador de posición) ---------- */
+
+.foto-barbero, .foto-corte {
+    display: grid;
+    place-items: center;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--superficie), #1d2a44);
+    border: 2px solid var(--borde);
+}
+
+.tarjeta .foto-barbero { width: 120px; height: 120px; margin: 0 auto 14px; border-color: var(--azul); border-radius: 50%; }
+.tarjeta .foto-corte { width: 100%; height: 150px; margin: 0 0 14px; border-radius: 8px; }
+.foto-barbero svg, .foto-corte svg { width: 44px; height: 44px; stroke: var(--azul-claro); stroke-width: 1.6; }
+
+/* Campo para subir archivos */
+input[type=file] { padding: 8px; }
+input[type=file]::file-selector-button {
+    margin-right: 12px;
+    padding: 7px 14px;
+    font-family: inherit;
+    color: var(--blanco);
+    background: var(--azul);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+input[type=file]::file-selector-button:hover { background: var(--azul-vivo); }
+.ayuda { display: block; margin-top: 6px; color: var(--suave); font-size: 13px; }
+
+/* ---------- Celulares ---------- */
+
+@media (max-width: 800px) {
+    .inicio { grid-template-columns: 1fr; gap: 28px; padding-top: 20px; }
+    .logo { height: 200px; }
+    .bienvenida h1 { font-size: 34px; }
+    .registro-form { padding: 38px 20px 22px; }
+}
 
 @media (max-width: 700px) {
-
-    header {
-        flex-direction: column;
-        text-align: center;
-        padding: 18px;
-    }
-
-    header h1 {
-        font-size: 25px;
-    }
-
-    nav {
-        gap: 4px;
-    }
-
-    nav a {
-        font-size: 14px;
-        padding: 7px 9px;
-    }
-
-    .contenedor {
-        width: 94%;
-        padding: 18px;
-        margin: 22px auto;
-    }
-
-    h2 {
-        font-size: 25px;
-    }
-
-    .tarjetas {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tarjeta {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .imagen-principal {
-        height: 220px;
-    }
-
-    table {
-        font-size: 13px;
-    }
-
-    th,
-    td {
-        padding: 8px;
-    }
+    header { padding: 18px; }
+    header h1 { font-size: 25px; }
+    nav .container { justify-content: center; }
+    .navbar-nav { margin-left: 0; }
+    .nav-link { font-size: 14px; padding: 7px 9px; }
+    .contenedor { width: 94%; padding: 18px; margin: 22px auto; }
+    h2 { font-size: 25px; }
+    .tarjetas { flex-direction: column; align-items: center; }
+    .tarjeta { width: 100%; max-width: 400px; }
+    form { padding: 20px 16px 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    table { font-size: 13px; }
+    th, td { padding: 8px; }
 }
 
-/* =====================================
-   ACCESIBILIDAD
-   ===================================== */
+/* ---------- Accesibilidad ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
     }
 }
