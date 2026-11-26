@@ -266,8 +266,12 @@ function App() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button onClick={handleSearch}>Buscar</button>
-        <button onClick={handleClearSearch}>Limpiar</button>
+        <button onClick={handleSearch} className="btn btn-primary">
+          Buscar
+        </button>
+        <button onClick={handleClearSearch} className="btn btn-secondary">
+          Limpiar
+        </button>
       </div>
 
       {loading ? (
