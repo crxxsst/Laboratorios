@@ -5,7 +5,7 @@ import {
   eliminarEstudiante,
 } from "./estudianteService";
 import TablaEstudiante from "./components/estudiante/TablaEstudiante";
-import { useEffect, useState } from "react";
+
 
 
 /*
@@ -198,7 +198,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "20px" }}>
-      <h1>Laboratorio 7 - React Estudiantes</h1>
+      <h1>Laboratorio 8 - React Estudiantes</h1>
       <p>Introducción a React con separación de responsabilidades.</p>
 
       <hr />
